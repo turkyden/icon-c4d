@@ -1,0 +1,62 @@
+{
+  "name": "geek-resume",
+  "version": "0.1.0",
+  "private": false,
+  "homepage": "http://turkyden.com/geek-resume",
+  "dependencies": {
+    "@craco/craco": "^6.0.0",
+    "@tailwindcss/postcss7-compat": "^2.0.1",
+    "@testing-library/jest-dom": "^5.11.4",
+    "@testing-library/react": "^11.1.0",
+    "@testing-library/user-event": "^12.1.10",
+    "@types/jest": "^26.0.15",
+    "@types/node": "^12.0.0",
+    "@types/react": "^16.9.53",
+    "@types/react-dom": "^16.9.8",
+    "ahooks": "^2.9.2",
+    "autoprefixer": "^9.8.6",
+    "eslint": "^7.15.0",
+    "github-markdown-css": "^4.0.0",
+    "postcss": "^7.0.35",
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1",
+    "react-github-corner": "^2.5.0",
+    "react-markdown": "^5.0.3",
+    "react-monaco-editor": "^0.40.0",
+    "react-scripts": "4.0.1",
+    "react-split-pane": "^2.0.3",
+    "remark-gfm": "^1.0.0",
+    "tailwindcss": "npm:@tailwindcss/postcss7-compat@^2.0.1",
+    "tailwindcss-classnames": "^1.9.0",
+    "typescript": "^4.0.3",
+    "web-vitals": "^0.2.4"
+  },
+  "scripts": {
+    "start": "craco start",
+    "build": "craco build",
+    "test": "craco test",
+    "eject": "craco eject"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "devDependencies": {
+    "@types/react-monaco-editor": "^0.16.0",
+    "monaco-editor-webpack-plugin": "^2.0.0"
+  }
+}
