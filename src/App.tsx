@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { render } from 'react-dom';
+import Slider from 'rc-slider';
+import 'rc-slider/assets/index.css';
 
 type IconProps = {
   url: string,
@@ -45,59 +47,74 @@ function Icon({ url, size = 96, interval = 20 }: IconProps) {
 }
 
 function App() {
+
+  const [ size, setSize ] = useState(64);
+
+  const [ interval, setInterval ] = useState(10);
+
   return (
-    <div className="bg-white">
-      <div className="w-full flex flex-col justify-center items-center py-20">
+    <>
+      <header className="w-full flex flex-col justify-center items-center py-20">
         <h1 className="text-6xl font-black">Icon<span className="text-orange-500">C4D</span></h1>
-        <p className="text-2xl font-mono text-gray-500 py-4">An C4D style icon developed by React.</p>
-      </div>
-      <div className="container m-auto grid grid-cols-6 gap-2">
+        <h2 className="text-2xl font-mono text-gray-500 py-4">An C4D style icon developed by React.</h2>
+      </header>
+      <section className="container m-auto grid grid-cols-6 gap-2">
         <div className="h-48 flex flex-col justify-center items-center">
-          <Icon url="https://img.alicdn.com/tfs/TB1qolSVhz1gK0jSZSgXXavwpXa-128-2688.png" />
+           <Icon size={size} url="https://img.alicdn.com/tfs/TB1qolSVhz1gK0jSZSgXXavwpXa-128-2688.png" />
         </div>
         <div className="h-48 flex flex-col justify-center items-center">
-          <Icon url="https://img.alicdn.com/tfs/TB1SwmqiODsXe8jSZR0XXXK6FXa-128-2688.png" />
+           <Icon size={size} url="https://img.alicdn.com/tfs/TB1SwmqiODsXe8jSZR0XXXK6FXa-128-2688.png" />
         </div>
         <div className="h-48 flex flex-col justify-center items-center">
-          <Icon url="https://img.alicdn.com/tfs/TB1C7fPidTfau8jSZFwXXX1mVXa-128-2688.png" />
+           <Icon size={size} url="https://img.alicdn.com/tfs/TB1C7fPidTfau8jSZFwXXX1mVXa-128-2688.png" />
         </div>
         <div className="h-48 flex flex-col justify-center items-center">
-          <Icon url="https://img.alicdn.com/imgextra/i1/19999999999999/O1CN01kEo6502NjasxGsHnS_!!19999999999999-2-tps.png" />
+           <Icon size={size} url="https://img.alicdn.com/imgextra/i1/19999999999999/O1CN01kEo6502NjasxGsHnS_!!19999999999999-2-tps.png" />
         </div>
         <div className="h-48 flex flex-col justify-center items-center">
-          <Icon url="https://img.alicdn.com/imgextra/i1/19999999999999/O1CN01wTY5Zt2Njasyydqim_!!19999999999999-2-tps.png" />
+           <Icon size={size} url="https://img.alicdn.com/imgextra/i1/19999999999999/O1CN01wTY5Zt2Njasyydqim_!!19999999999999-2-tps.png" />
         </div>
         <div className="h-48 flex flex-col justify-center items-center">
-          <Icon url="https://img.alicdn.com/tfs/TB1u12whCslXu8jSZFuXXXg7FXa-128-2688.png" />
+           <Icon size={size} url="https://img.alicdn.com/tfs/TB1u12whCslXu8jSZFuXXXg7FXa-128-2688.png" />
         </div>
         <div className="h-48 flex flex-col justify-center items-center">
-          <Icon url="https://img.alicdn.com/imgextra/i4/19999999999999/O1CN019FqNuv2NjaswQicY2_!!19999999999999-2-tps.png" />
+           <Icon size={size} url="https://img.alicdn.com/imgextra/i4/19999999999999/O1CN019FqNuv2NjaswQicY2_!!19999999999999-2-tps.png" />
         </div>
         <div className="h-48 flex flex-col justify-center items-center">
-          <Icon url="https://img.alicdn.com/tfs/TB111c4mz39YK4jSZPcXXXrUFXa-128-2688.png" />
+           <Icon size={size} url="https://img.alicdn.com/tfs/TB111c4mz39YK4jSZPcXXXrUFXa-128-2688.png" />
         </div>
         <div className="h-48 flex flex-col justify-center items-center">
-          <Icon url="https://img.alicdn.com/tfs/TB1.6kUU4v1gK0jSZFFXXb0sXXa-128-2688.png" />
+           <Icon size={size} url="https://img.alicdn.com/tfs/TB1.6kUU4v1gK0jSZFFXXb0sXXa-128-2688.png" />
         </div>
         <div className="h-48 flex flex-col justify-center items-center">
-          <Icon url="https://img.alicdn.com/imgextra/i2/19999999999999/O1CN01lNd4Q42Njasz4EGUD_!!19999999999999-2-tps.png" />
+           <Icon size={size} url="https://img.alicdn.com/imgextra/i2/19999999999999/O1CN01lNd4Q42Njasz4EGUD_!!19999999999999-2-tps.png" />
         </div>
         <div className="h-48 flex flex-col justify-center items-center">
-          <Icon url="https://img.alicdn.com/tfs/TB1cHirmP39YK4jSZPcXXXrUFXa-128-2688.png" />
+           <Icon size={size} url="https://img.alicdn.com/tfs/TB1cHirmP39YK4jSZPcXXXrUFXa-128-2688.png" />
         </div>
         <div className="h-48 flex flex-col justify-center items-center">
-          <Icon url="https://img.alicdn.com/imgextra/i4/19999999999999/O1CN01S0iMLP2Njasz4Fk1Q_!!19999999999999-2-tps.png" />
+           <Icon size={size} url="https://img.alicdn.com/imgextra/i4/19999999999999/O1CN01S0iMLP2Njasz4Fk1Q_!!19999999999999-2-tps.png" />
         </div>
         <div className="h-48 flex flex-col justify-center items-center">
-          <Icon url="https://img.alicdn.com/tfs/TB1gnuZiipE_u4jSZKbXXbCUVXa-128-2688.png" />
+           <Icon size={size} url="https://img.alicdn.com/tfs/TB1gnuZiipE_u4jSZKbXXbCUVXa-128-2688.png" />
         </div>
         <div className="h-48 flex flex-col justify-center items-center">
-          <Icon url="https://img.alicdn.com/imgextra/i2/19999999999999/O1CN01ZViOh72NjasxGvRSV_!!19999999999999-2-tps.png" />
+           <Icon size={size} url="https://img.alicdn.com/imgextra/i2/19999999999999/O1CN01ZViOh72NjasxGvRSV_!!19999999999999-2-tps.png" />
         </div>
-      </div>
-      
-      <p className="text-center text-gray-600">Inspired by Aliyun 🧡 Created by <a className="text-orange-500 hover:underline" href="https://github.com/Turkyden" target="_blank" rel="noreferrer">Turkyden</a></p>
-    </div>
+      </section>  
+      <section className="fixed top-0 right-0 p-4">
+        <div className="w-64 h-64 flex justify-center items-center shadow p-4">
+          <h3 className="text-lg">Customize</h3>
+          <p>Size</p>
+          <Slider min={24} max={128} value={size} onChange={value => setSize(value)} />
+          <p>Interval</p>
+          <Slider min={10} max={40} value={interval} onChange={value => setInterval(value)} />
+        </div>
+      </section>
+      <footer className="container m-auto flex justify-center">
+        <p className="text-gray-600">Inspired by Aliyun 🧡 Created by <a className="text-orange-500 hover:underline" href="https://github.com/Turkyden" target="_blank" rel="noreferrer">Turkyden</a></p>
+      </footer>
+    </>
   )
 }
 
