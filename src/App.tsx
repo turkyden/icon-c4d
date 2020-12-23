@@ -1,116 +1,102 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useEffect } from 'react';
 import { render } from 'react-dom';
-import MonacoEditor from 'react-monaco-editor';
-import SplitPane from 'react-split-pane';
-import GithubCorner from 'react-github-corner';
-import ReactMarkdownWithHtml from 'react-markdown/with-html';
-import gfm from 'remark-gfm';
-import * as monaco from "monaco-editor/esm/vs/editor/editor.api";
-import './A4.css';
-import resume_cn from './resume_cn';
-import resume_us from './resume_us';
-import svg_cn from './cn.svg';
-import svg_us from './us.svg'
 
-function App() {
-  const [zNMode, setZNMode] = useState(true);
+type IconProps = {
+  url: string,
+  size?: number, 
+  interval?: number
+}
 
-  const [resumeCN, setResumeCN] = useState(resume_cn);
+function Icon({ url, size = 96, interval = 20 }: IconProps) {
 
-  const [resumeUS, setResumeUS] = useState(resume_us);
+  const [y, setY] = useState(0);
 
-  const code = zNMode ? resumeCN : resumeUS;
-  
-  const [darkMode, setDarkMode] = useState(false);
+  const [direction, setDirection] = useState(0);
 
-  const myEditor = useRef<monaco.editor.IStandaloneCodeEditor>();
-
-  const [width, setWidth] = useState('100%');
-
-  const editorDidMount = (editor: monaco.editor.IStandaloneCodeEditor): void => {
-    myEditor.current = editor;
-    myEditor.current.focus();
-    myEditor.current.updateOptions({
-      minimap: {
-        enabled: false
-      }
-    })
-  }
-
-  const onMonacoChange = (newValue: any) => zNMode ? setResumeCN(newValue) : setResumeUS(newValue);
-
-  const onSplitChange = (size: unknown) => {
-    const newSize = size as number[];
-    console.log(newSize[1]*0.01 + 'px');
-    setWidth(newSize[1]*0.01 + 'px');
-    myEditor.current?.layout();
-  };
+  useEffect(() => {
+    const timer = window.setInterval(() => {
+      setY(preState => {
+        const nextState = preState + size * direction;
+        if(nextState >= -size*20 && nextState <= 0){
+          return nextState
+        } else{
+          return preState
+        }
+      })
+      
+    }, interval)
+    return () => window.clearInterval(timer)
+  }, [direction])
 
   return (
-    <div className="w-screen h-screen">
-      <SplitPane split="vertical" onChange={onSplitChange} >
-        <div className="w-full h-full">
-          <div className="flex justify-center overflow-scroll" style={{ height: '100%', backgroundColor: darkMode ? '#1e1e1e' : '#ffffff' }}>
-            <div className="A4Wrapper">
-              <ReactMarkdownWithHtml plugins={[gfm]} allowDangerousHtml className="A4 markdown-body shadow-2xl" >
-                {code}
-              </ReactMarkdownWithHtml>
-            </div>
-          </div>
+    <div 
+      className="cursor-pointer bg-no-repeat bg-cover" 
+      onMouseOver={e => setDirection(-1)} 
+      onMouseOut={e => setDirection(1)} 
+      style={{
+        width: size,
+        height: size,
+        backgroundImage: `url(${url})`,
+        backgroundPosition: '0 0',
+        backgroundPositionY: y
+      }}
+    />
+  )
+}
+
+function App() {
+  return (
+    <div className="bg-white">
+      <div className="w-full flex flex-col justify-center items-center py-20">
+        <h1 className="text-6xl font-black">Icon<span className="text-orange-500">C4D</span></h1>
+        <p className="text-2xl font-mono text-gray-500 py-4">An C4D style icon developed by React.</p>
+      </div>
+      <div className="container m-auto grid grid-cols-6 gap-2">
+        <div className="h-48 flex flex-col justify-center items-center">
+          <Icon url="https://img.alicdn.com/tfs/TB1qolSVhz1gK0jSZSgXXavwpXa-128-2688.png" />
         </div>
-        <div className="w-full h-full">
-          <div className="w-full bg-purple-700 h-12 flex justify-between items-center px-4">
-            <ul className="flex items-center text-white h-full list-none">
-              <li className="pr-10">
-                <a className="text-white text-lg no-underline font-mono" href="https://github.com/Turkyden/geek-resume" target="_blank" rel="noreferrer">Geek Resume</a>
-              </li>
-              <li 
-                className={`px-4 h-full flex items-center cursor-pointer ${ zNMode ? 'bg-purple-800' : 'bg-transparent' }`} 
-                onClick={() => setZNMode(true)}
-              >
-                <img className="w-4" src={svg_cn} alt="zh-cn" />
-                <span className="pl-4 text-sm">中文</span>
-              </li>
-              <li 
-                className={`px-4 h-full flex items-center cursor-pointer ${ !zNMode ? 'bg-purple-800' : 'bg-transparent' }`}
-                onClick={() => setZNMode(false)}
-              >
-                <img className="w-4" src={svg_us} alt="us" />
-                <span className="pl-4 text-sm">English</span>
-              </li>
-            </ul>
-            <ul className="flex justify-between list-none">
-              {/* <li className="">linkin / Boss / </li>
-              <li className="">Export as PDF / PNG / Markdown</li> */}
-              <li className="cursor-pointer text-white pr-4 transition duration-300 ease-in-out transform hover:scale-125" onClick={() => window.print()}>
-                <span>🖨️</span>
-              </li>
-              <li className="cursor-pointer flex items-center transition duration-300 ease-in-out transform hover:scale-125" onClick={() => setDarkMode(value => !value)}>
-                <span>{ darkMode ? '🌕' : '🌙' }</span>
-              </li>
-            </ul>
-          </div>
-          <MonacoEditor
-            width={width}
-            height={'100%'}
-            language="markdown"
-            theme={darkMode ? "vs-dark" : "vs"}
-            value={code}
-            options={{ selectOnLineNumbers: true }}
-            onChange={onMonacoChange}
-            editorDidMount={editorDidMount}
-          />
+        <div className="h-48 flex flex-col justify-center items-center">
+          <Icon url="https://img.alicdn.com/tfs/TB1SwmqiODsXe8jSZR0XXXK6FXa-128-2688.png" />
         </div>
-      </SplitPane>
-      <GithubCorner
-        href="https://github.com/Turkyden/geek-resume"
-        bannerColor="#6D28D9"
-        octoColor="#fff"
-        size={80}
-        direction="left" 
-      />
+        <div className="h-48 flex flex-col justify-center items-center">
+          <Icon url="https://img.alicdn.com/tfs/TB1C7fPidTfau8jSZFwXXX1mVXa-128-2688.png" />
+        </div>
+        <div className="h-48 flex flex-col justify-center items-center">
+          <Icon url="https://img.alicdn.com/imgextra/i1/19999999999999/O1CN01kEo6502NjasxGsHnS_!!19999999999999-2-tps.png" />
+        </div>
+        <div className="h-48 flex flex-col justify-center items-center">
+          <Icon url="https://img.alicdn.com/imgextra/i1/19999999999999/O1CN01wTY5Zt2Njasyydqim_!!19999999999999-2-tps.png" />
+        </div>
+        <div className="h-48 flex flex-col justify-center items-center">
+          <Icon url="https://img.alicdn.com/tfs/TB1u12whCslXu8jSZFuXXXg7FXa-128-2688.png" />
+        </div>
+        <div className="h-48 flex flex-col justify-center items-center">
+          <Icon url="https://img.alicdn.com/imgextra/i4/19999999999999/O1CN019FqNuv2NjaswQicY2_!!19999999999999-2-tps.png" />
+        </div>
+        <div className="h-48 flex flex-col justify-center items-center">
+          <Icon url="https://img.alicdn.com/tfs/TB111c4mz39YK4jSZPcXXXrUFXa-128-2688.png" />
+        </div>
+        <div className="h-48 flex flex-col justify-center items-center">
+          <Icon url="https://img.alicdn.com/tfs/TB1.6kUU4v1gK0jSZFFXXb0sXXa-128-2688.png" />
+        </div>
+        <div className="h-48 flex flex-col justify-center items-center">
+          <Icon url="https://img.alicdn.com/imgextra/i2/19999999999999/O1CN01lNd4Q42Njasz4EGUD_!!19999999999999-2-tps.png" />
+        </div>
+        <div className="h-48 flex flex-col justify-center items-center">
+          <Icon url="https://img.alicdn.com/tfs/TB1cHirmP39YK4jSZPcXXXrUFXa-128-2688.png" />
+        </div>
+        <div className="h-48 flex flex-col justify-center items-center">
+          <Icon url="https://img.alicdn.com/imgextra/i4/19999999999999/O1CN01S0iMLP2Njasz4Fk1Q_!!19999999999999-2-tps.png" />
+        </div>
+        <div className="h-48 flex flex-col justify-center items-center">
+          <Icon url="https://img.alicdn.com/tfs/TB1gnuZiipE_u4jSZKbXXbCUVXa-128-2688.png" />
+        </div>
+        <div className="h-48 flex flex-col justify-center items-center">
+          <Icon url="https://img.alicdn.com/imgextra/i2/19999999999999/O1CN01ZViOh72NjasxGvRSV_!!19999999999999-2-tps.png" />
+        </div>
+      </div>
     </div>
-  );
+  )
 }
 
 render(

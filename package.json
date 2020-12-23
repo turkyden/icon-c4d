@@ -1,8 +1,8 @@
 {
-  "name": "geek-resume",
+  "name": "icon-c4d",
   "version": "0.1.0",
   "private": false,
-  "homepage": "http://turkyden.com/geek-resume",
+  "homepage": "http://turkyden.com/icon-c4d",
   "dependencies": {
     "@craco/craco": "^6.0.0",
     "@tailwindcss/postcss7-compat": "^2.0.1",
@@ -21,11 +21,7 @@
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
     "react-github-corner": "^2.5.0",
-    "react-markdown": "^5.0.3",
-    "react-monaco-editor": "^0.40.0",
     "react-scripts": "4.0.1",
-    "react-split-pane": "^2.0.3",
-    "remark-gfm": "^1.0.0",
     "tailwindcss": "npm:@tailwindcss/postcss7-compat@^2.0.1",
     "tailwindcss-classnames": "^1.9.0",
     "typescript": "^4.0.3",
