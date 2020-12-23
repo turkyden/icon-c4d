@@ -26,7 +26,7 @@ function Icon({ url, size = 96, interval = 20 }: IconProps) {
       
     }, interval)
     return () => window.clearInterval(timer)
-  }, [direction])
+  }, [size, interval, direction])
 
   return (
     <div 
