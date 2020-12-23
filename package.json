@@ -16,7 +16,6 @@
     "ahooks": "^2.9.2",
     "autoprefixer": "^9.8.6",
     "eslint": "^7.15.0",
-    "github-markdown-css": "^4.0.0",
     "postcss": "^7.0.35",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
@@ -51,8 +50,5 @@
       "last 1 safari version"
     ]
   },
-  "devDependencies": {
-    "@types/react-monaco-editor": "^0.16.0",
-    "monaco-editor-webpack-plugin": "^2.0.0"
-  }
+  "devDependencies": {}
 }
