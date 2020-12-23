@@ -1,13 +1,7 @@
-const MonacoWebpackPlugin = require('monaco-editor-webpack-plugin');
-
 module.exports = {
   webpack: {
     alias: {},
-    plugins: [
-      new MonacoWebpackPlugin({
-        languages: ["json", "javascript", "typescript", 'markdown'],
-      })
-    ],
+    plugins: [],
     configure: { /* Any webpack configuration options: https://webpack.js.org/configuration */ },
     configure: (webpackConfig, { env, paths }) => webpackConfig
   },
