@@ -1,22 +1,25 @@
 {
   "files": {
-    "main.css": "https://cdn.jsdelivr.net/gh/turkyden/icon-c4d@gh-pages/static/css/main.33f72f36.chunk.css",
-    "main.js": "https://cdn.jsdelivr.net/gh/turkyden/icon-c4d@gh-pages/static/js/main.43a01f7a.chunk.js",
-    "main.js.map": "https://cdn.jsdelivr.net/gh/turkyden/icon-c4d@gh-pages/static/js/main.43a01f7a.chunk.js.map",
-    "runtime-main.js": "https://cdn.jsdelivr.net/gh/turkyden/icon-c4d@gh-pages/static/js/runtime-main.5260b5fb.js",
-    "runtime-main.js.map": "https://cdn.jsdelivr.net/gh/turkyden/icon-c4d@gh-pages/static/js/runtime-main.5260b5fb.js.map",
-    "static/js/2.68bed6c6.chunk.js": "https://cdn.jsdelivr.net/gh/turkyden/icon-c4d@gh-pages/static/js/2.68bed6c6.chunk.js",
-    "static/js/2.68bed6c6.chunk.js.map": "https://cdn.jsdelivr.net/gh/turkyden/icon-c4d@gh-pages/static/js/2.68bed6c6.chunk.js.map",
-    "static/js/3.f1948bfe.chunk.js": "https://cdn.jsdelivr.net/gh/turkyden/icon-c4d@gh-pages/static/js/3.f1948bfe.chunk.js",
-    "static/js/3.f1948bfe.chunk.js.map": "https://cdn.jsdelivr.net/gh/turkyden/icon-c4d@gh-pages/static/js/3.f1948bfe.chunk.js.map",
+    "main.css": "https://cdn.jsdelivr.net/gh/turkyden/icon-c4d@gh-pages/static/css/main.93e6b14d.chunk.css",
+    "main.js": "https://cdn.jsdelivr.net/gh/turkyden/icon-c4d@gh-pages/static/js/main.b919caf4.chunk.js",
+    "main.js.map": "https://cdn.jsdelivr.net/gh/turkyden/icon-c4d@gh-pages/static/js/main.b919caf4.chunk.js.map",
+    "runtime-main.js": "https://cdn.jsdelivr.net/gh/turkyden/icon-c4d@gh-pages/static/js/runtime-main.b8f30654.js",
+    "runtime-main.js.map": "https://cdn.jsdelivr.net/gh/turkyden/icon-c4d@gh-pages/static/js/runtime-main.b8f30654.js.map",
+    "static/css/2.baa380cc.chunk.css": "https://cdn.jsdelivr.net/gh/turkyden/icon-c4d@gh-pages/static/css/2.baa380cc.chunk.css",
+    "static/js/2.a53a437f.chunk.js": "https://cdn.jsdelivr.net/gh/turkyden/icon-c4d@gh-pages/static/js/2.a53a437f.chunk.js",
+    "static/js/2.a53a437f.chunk.js.map": "https://cdn.jsdelivr.net/gh/turkyden/icon-c4d@gh-pages/static/js/2.a53a437f.chunk.js.map",
+    "static/js/3.12f4daf9.chunk.js": "https://cdn.jsdelivr.net/gh/turkyden/icon-c4d@gh-pages/static/js/3.12f4daf9.chunk.js",
+    "static/js/3.12f4daf9.chunk.js.map": "https://cdn.jsdelivr.net/gh/turkyden/icon-c4d@gh-pages/static/js/3.12f4daf9.chunk.js.map",
     "index.html": "https://cdn.jsdelivr.net/gh/turkyden/icon-c4d@gh-pages/index.html",
-    "static/css/main.33f72f36.chunk.css.map": "https://cdn.jsdelivr.net/gh/turkyden/icon-c4d@gh-pages/static/css/main.33f72f36.chunk.css.map",
-    "static/js/2.68bed6c6.chunk.js.LICENSE.txt": "https://cdn.jsdelivr.net/gh/turkyden/icon-c4d@gh-pages/static/js/2.68bed6c6.chunk.js.LICENSE.txt"
+    "static/css/2.baa380cc.chunk.css.map": "https://cdn.jsdelivr.net/gh/turkyden/icon-c4d@gh-pages/static/css/2.baa380cc.chunk.css.map",
+    "static/css/main.93e6b14d.chunk.css.map": "https://cdn.jsdelivr.net/gh/turkyden/icon-c4d@gh-pages/static/css/main.93e6b14d.chunk.css.map",
+    "static/js/2.a53a437f.chunk.js.LICENSE.txt": "https://cdn.jsdelivr.net/gh/turkyden/icon-c4d@gh-pages/static/js/2.a53a437f.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
-    "static/js/runtime-main.5260b5fb.js",
-    "static/js/2.68bed6c6.chunk.js",
-    "static/css/main.33f72f36.chunk.css",
-    "static/js/main.43a01f7a.chunk.js"
+    "static/js/runtime-main.b8f30654.js",
+    "static/css/2.baa380cc.chunk.css",
+    "static/js/2.a53a437f.chunk.js",
+    "static/css/main.93e6b14d.chunk.css",
+    "static/js/main.b919caf4.chunk.js"
   ]
 }
