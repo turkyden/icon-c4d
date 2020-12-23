@@ -95,6 +95,8 @@ function App() {
           <Icon url="https://img.alicdn.com/imgextra/i2/19999999999999/O1CN01ZViOh72NjasxGvRSV_!!19999999999999-2-tps.png" />
         </div>
       </div>
+      
+      <p className="text-center text-gray-600">Inspired by Aliyun 🧡 Created by <a className="text-orange-500 hover:underline" href="https://github.com/Turkyden" target="_blank" rel="noreferrer">Turkyden</a></p>
     </div>
   )
 }
