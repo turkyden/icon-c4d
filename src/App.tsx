@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useLayoutEffect } from 'react';
 import { render } from 'react-dom';
+import { Transition } from '@headlessui/react'
 import Slider, { SliderProps } from 'rc-slider';
 import 'rc-slider/assets/index.css';
 
@@ -57,11 +58,78 @@ function MySlider(props: SliderProps) {
   return <Slider {...props} trackStyle={{ backgroundColor: '#ff6a00' }} handleStyle={{ border: 'solid 2px #ff6a00' }} />
 }
 
-const Stage: React.FunctionComponent<{ children: React.ReactElement }> = ({ children }) => (
-  <div className="w-48 h-48 bg-gray-50 shadow-inner flex flex-col justify-center items-center">
-    {children}
-  </div>
-)
+const Stage: React.FunctionComponent<{ children: React.ReactElement }> = ({ children }) => {
+  const [isOpen, setIsOpen] = useState(false)
+
+  return (
+    <>
+      <div className="w-48 h-48 bg-gray-50 shadow-inner flex flex-col justify-center items-center"
+        onClick={() => setIsOpen(!isOpen)}
+      >
+        {children}
+      </div>
+
+      <div className={`fixed z-10 inset-0 overflow-y-auto ${ isOpen ? 'block' : 'hidden' }`}>
+        <div className="flex items-end justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0">
+          <Transition
+            show={isOpen}
+            enter="ease-out duration-300"
+            enterFrom="opacity-0"
+            enterTo="opacity-100"
+            leave="ease-in duration-200"
+            leaveFrom="opacity-100"
+            leaveTo="opacity-0"
+            className="fixed inset-0 transition-opacity"
+            as="div"
+            onClick={e => setIsOpen(false)}
+          >
+            <div className="absolute inset-0 bg-gray-500 opacity-75"></div>
+          </Transition>
+          <span className="hidden sm:inline-block sm:align-middle sm:h-screen" aria-hidden="true">&#8203;</span>
+          <Transition
+            show={isOpen}
+            enter="ease-out duration-300"
+            enterFrom="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
+            enterTo="opacity-100 translate-y-0 sm:scale-100"
+            leave="ease-in duration-200"
+            leaveFrom="opacity-100 translate-y-0 sm:scale-100"
+            leaveTo="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
+            className="inline-block align-bottom bg-white rounded-lg text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-lg sm:w-full"
+            as="div"
+          >
+            <div className="bg-white px-4 pt-5 pb-4 sm:p-6 sm:pb-4">
+              <div className="sm:flex sm:items-start">
+                <div className="mx-auto flex-shrink-0 flex items-center justify-center h-12 w-12 rounded-full bg-yellow-100 sm:mx-0 sm:h-10 sm:w-10">
+                  🧡
+                </div>
+                <div className="mt-3 text-center sm:mt-0 sm:ml-4 sm:text-left">
+                  <h3 className="text-lg leading-6 font-medium text-gray-900" id="modal-headline">
+                    Deactivate account
+                  </h3>
+                  <div className="mt-2">
+                    <p className="text-sm text-gray-500">
+                      Are you sure you want to deactivate your account? All of your data will be permanently removed. This action cannot be undone.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div className="bg-gray-50 px-4 py-3 sm:px-6 sm:flex sm:flex-row-reverse">
+              <button type="button" className="w-full inline-flex justify-center rounded-md border border-transparent shadow-sm px-4 py-2 bg-orange-500 text-base font-medium text-white hover:bg-orange-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500 sm:ml-3 sm:w-auto sm:text-sm">
+                Download PNG
+              </button>
+              <button type="button" className="mt-3 w-full inline-flex justify-center rounded-md border border-gray-300 shadow-sm px-4 py-2 bg-white text-base font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 sm:mt-0 sm:ml-3 sm:w-auto sm:text-sm"
+                onClick={e => setIsOpen(false)}
+              >
+                Cancel
+              </button>
+            </div>
+          </Transition>
+        </div>
+      </div>
+    </>
+  )
+}
 
 function App() {
 

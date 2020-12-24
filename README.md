@@ -2,6 +2,19 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+## Usage
+
+```tsx
+import IconC4D from 'iconC4D';
+import icon_cloud_computing from '../assets/icon/cloud_computing.png';
+
+function App() {
+  return (
+    <IconC4D size={64} interval={10} src={icon_cloud_computing} />
+  )
+}
+```
+
 ## Available Scripts
 
 In the project directory, you can run:
