@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "https://cdn.jsdelivr.net/gh/turkyden/icon-c4d@gh-pages/static/css/main.f8ce6347.chunk.css",
-    "main.js": "https://cdn.jsdelivr.net/gh/turkyden/icon-c4d@gh-pages/static/js/main.8159e9ff.chunk.js",
-    "main.js.map": "https://cdn.jsdelivr.net/gh/turkyden/icon-c4d@gh-pages/static/js/main.8159e9ff.chunk.js.map",
+    "main.js": "https://cdn.jsdelivr.net/gh/turkyden/icon-c4d@gh-pages/static/js/main.7797d79e.chunk.js",
+    "main.js.map": "https://cdn.jsdelivr.net/gh/turkyden/icon-c4d@gh-pages/static/js/main.7797d79e.chunk.js.map",
     "runtime-main.js": "https://cdn.jsdelivr.net/gh/turkyden/icon-c4d@gh-pages/static/js/runtime-main.4d06e527.js",
     "runtime-main.js.map": "https://cdn.jsdelivr.net/gh/turkyden/icon-c4d@gh-pages/static/js/runtime-main.4d06e527.js.map",
     "static/css/2.baa380cc.chunk.css": "https://cdn.jsdelivr.net/gh/turkyden/icon-c4d@gh-pages/static/css/2.baa380cc.chunk.css",
@@ -14,13 +14,13 @@
     "static/css/2.baa380cc.chunk.css.map": "https://cdn.jsdelivr.net/gh/turkyden/icon-c4d@gh-pages/static/css/2.baa380cc.chunk.css.map",
     "static/css/main.f8ce6347.chunk.css.map": "https://cdn.jsdelivr.net/gh/turkyden/icon-c4d@gh-pages/static/css/main.f8ce6347.chunk.css.map",
     "static/js/2.384c7340.chunk.js.LICENSE.txt": "https://cdn.jsdelivr.net/gh/turkyden/icon-c4d@gh-pages/static/js/2.384c7340.chunk.js.LICENSE.txt",
-    "static/media/weixin.5ea0ba61.png": "https://cdn.jsdelivr.net/gh/turkyden/icon-c4d@gh-pages/static/media/weixin.5ea0ba61.png"
+    "static/media/weixin.ddf76d1c.png": "https://cdn.jsdelivr.net/gh/turkyden/icon-c4d@gh-pages/static/media/weixin.ddf76d1c.png"
   },
   "entrypoints": [
     "static/js/runtime-main.4d06e527.js",
     "static/css/2.baa380cc.chunk.css",
     "static/js/2.384c7340.chunk.js",
     "static/css/main.f8ce6347.chunk.css",
-    "static/js/main.8159e9ff.chunk.js"
+    "static/js/main.7797d79e.chunk.js"
   ]
 }
