@@ -166,46 +166,46 @@ function App() {
           <Icon size={size} interval={interval} url="https://img.alicdn.com/tfs/TB1qolSVhz1gK0jSZSgXXavwpXa-128-2688.png" />
         </Stage>
         <Stage>
-           <Icon size={size} interval={interval} url="https://img.alicdn.com/tfs/TB1SwmqiODsXe8jSZR0XXXK6FXa-128-2688.png" />
+          <Icon size={size} interval={interval} url="https://img.alicdn.com/tfs/TB1SwmqiODsXe8jSZR0XXXK6FXa-128-2688.png" />
         </Stage>
         <Stage>
-           <Icon size={size} interval={interval} url="https://img.alicdn.com/tfs/TB1C7fPidTfau8jSZFwXXX1mVXa-128-2688.png" />
+          <Icon size={size} interval={interval} url="https://img.alicdn.com/tfs/TB1C7fPidTfau8jSZFwXXX1mVXa-128-2688.png" />
         </Stage>
         <Stage>
-           <Icon size={size} interval={interval} url="https://img.alicdn.com/imgextra/i1/19999999999999/O1CN01kEo6502NjasxGsHnS_!!19999999999999-2-tps.png" />
+          <Icon size={size} interval={interval} url="https://img.alicdn.com/imgextra/i1/19999999999999/O1CN01kEo6502NjasxGsHnS_!!19999999999999-2-tps.png" />
         </Stage>
         <Stage>
-           <Icon size={size} interval={interval} url="https://img.alicdn.com/imgextra/i1/19999999999999/O1CN01wTY5Zt2Njasyydqim_!!19999999999999-2-tps.png" />
+          <Icon size={size} interval={interval} url="https://img.alicdn.com/imgextra/i1/19999999999999/O1CN01wTY5Zt2Njasyydqim_!!19999999999999-2-tps.png" />
         </Stage>
         <Stage>
-           <Icon size={size} interval={interval} url="https://img.alicdn.com/tfs/TB1u12whCslXu8jSZFuXXXg7FXa-128-2688.png" />
+          <Icon size={size} interval={interval} url="https://img.alicdn.com/tfs/TB1u12whCslXu8jSZFuXXXg7FXa-128-2688.png" />
         </Stage>
         <Stage>
-           <Icon size={size} interval={interval} url="https://img.alicdn.com/imgextra/i4/19999999999999/O1CN019FqNuv2NjaswQicY2_!!19999999999999-2-tps.png" />
+          <Icon size={size} interval={interval} url="https://img.alicdn.com/imgextra/i4/19999999999999/O1CN019FqNuv2NjaswQicY2_!!19999999999999-2-tps.png" />
         </Stage>
         <Stage>
-           <Icon size={size} interval={interval} url="https://img.alicdn.com/tfs/TB111c4mz39YK4jSZPcXXXrUFXa-128-2688.png" />
+          <Icon size={size} interval={interval} url="https://img.alicdn.com/tfs/TB111c4mz39YK4jSZPcXXXrUFXa-128-2688.png" />
         </Stage>
         <Stage>
-           <Icon size={size} interval={interval} url="https://img.alicdn.com/tfs/TB1.6kUU4v1gK0jSZFFXXb0sXXa-128-2688.png" />
+          <Icon size={size} interval={interval} url="https://img.alicdn.com/tfs/TB1.6kUU4v1gK0jSZFFXXb0sXXa-128-2688.png" />
         </Stage>
         <Stage>
-           <Icon size={size} interval={interval} url="https://img.alicdn.com/imgextra/i2/19999999999999/O1CN01lNd4Q42Njasz4EGUD_!!19999999999999-2-tps.png" />
+          <Icon size={size} interval={interval} url="https://img.alicdn.com/imgextra/i2/19999999999999/O1CN01lNd4Q42Njasz4EGUD_!!19999999999999-2-tps.png" />
         </Stage>
         <Stage>
-           <Icon size={size} interval={interval} url="https://img.alicdn.com/tfs/TB1cHirmP39YK4jSZPcXXXrUFXa-128-2688.png" />
+          <Icon size={size} interval={interval} url="https://img.alicdn.com/tfs/TB1cHirmP39YK4jSZPcXXXrUFXa-128-2688.png" />
         </Stage>
         <Stage>
-           <Icon size={size} interval={interval} url="https://img.alicdn.com/imgextra/i4/19999999999999/O1CN01S0iMLP2Njasz4Fk1Q_!!19999999999999-2-tps.png" />
+          <Icon size={size} interval={interval} url="https://img.alicdn.com/imgextra/i4/19999999999999/O1CN01S0iMLP2Njasz4Fk1Q_!!19999999999999-2-tps.png" />
         </Stage>
         <Stage>
-           <Icon size={size} interval={interval} url="https://img.alicdn.com/tfs/TB1gnuZiipE_u4jSZKbXXbCUVXa-128-2688.png" />
+          <Icon size={size} interval={interval} url="https://img.alicdn.com/tfs/TB1gnuZiipE_u4jSZKbXXbCUVXa-128-2688.png" />
         </Stage>
         <Stage>
-           <Icon size={size} interval={interval} url="https://img.alicdn.com/imgextra/i2/19999999999999/O1CN01ZViOh72NjasxGvRSV_!!19999999999999-2-tps.png" />
+          <Icon size={size} interval={interval} url="https://img.alicdn.com/imgextra/i2/19999999999999/O1CN01ZViOh72NjasxGvRSV_!!19999999999999-2-tps.png" />
         </Stage>
         <Stage>
-           <Icon size={size} interval={interval} url={weaver_icon_weixin} />
+          <Icon size={size} interval={interval} url={weaver_icon_weixin} />
         </Stage>
       </section>  
       <section className="fixed top-0 right-0 p-4">
