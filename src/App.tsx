@@ -3,6 +3,9 @@ import { render } from 'react-dom';
 import { Transition } from '@headlessui/react'
 import Slider, { SliderProps } from 'rc-slider';
 import 'rc-slider/assets/index.css';
+import SyntaxHighlighter from 'react-syntax-highlighter';
+import { github } from 'react-syntax-highlighter/dist/esm/styles/hljs';
+import weaver_icon_weixin from './assets/@weaver/weixin.png';
 
 type IconProps = {
   url: string,
@@ -54,12 +57,23 @@ function Icon({ url, size = 64, interval = 20 }: IconProps) {
   )
 }
 
-function MySlider(props: SliderProps) {
+const MySlider: React.FunctionComponent<SliderProps> = (props) => {
   return <Slider {...props} trackStyle={{ backgroundColor: '#ff6a00' }} handleStyle={{ border: 'solid 2px #ff6a00' }} />
 }
 
 const Stage: React.FunctionComponent<{ children: React.ReactElement }> = ({ children }) => {
-  const [isOpen, setIsOpen] = useState(false)
+  const [isOpen, setIsOpen] = useState(false);
+
+  const codeInstallString = `npm install iconC4D`;
+
+  const codeUsageString = `import IconC4D from 'iconC4D';
+import icon_cloud_computing from '../assets/icon/cloud_computing.png';
+
+function App() {
+  return (
+    <IconC4D size={64} interval={10} src={icon_cloud_computing} />
+  )
+}`
 
   return (
     <>
@@ -94,30 +108,34 @@ const Stage: React.FunctionComponent<{ children: React.ReactElement }> = ({ chil
             leave="ease-in duration-200"
             leaveFrom="opacity-100 translate-y-0 sm:scale-100"
             leaveTo="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
-            className="inline-block align-bottom bg-white rounded-lg text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-lg sm:w-full"
+            className="inline-block align-bottom bg-white rounded-lg text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle"
             as="div"
           >
             <div className="bg-white px-4 pt-5 pb-4 sm:p-6 sm:pb-4">
-              <div className="sm:flex sm:items-start">
-                <div className="mx-auto flex-shrink-0 flex items-center justify-center h-12 w-12 rounded-full bg-yellow-100 sm:mx-0 sm:h-10 sm:w-10">
-                  🧡
-                </div>
-                <div className="mt-3 text-center sm:mt-0 sm:ml-4 sm:text-left">
-                  <h3 className="text-lg leading-6 font-medium text-gray-900" id="modal-headline">
-                    Deactivate account
-                  </h3>
-                  <div className="mt-2">
-                    <p className="text-sm text-gray-500">
-                      Are you sure you want to deactivate your account? All of your data will be permanently removed. This action cannot be undone.
-                    </p>
-                  </div>
+              <div className="flex justify-center ">
+                {children}
+              </div>
+              <div className="mt-3">
+                <div className="mt-2">
+                  <p className="text-base text-gray-500 pt-6 pb-4">
+                    📦 Install the package:
+                  </p>
+                  <SyntaxHighlighter className="text-base" language="shell" style={github}>
+                    {codeInstallString}
+                  </SyntaxHighlighter>
+                  <p className="text-base text-gray-500 pt-6 pb-4">
+                    🚀 Customize the icon component:
+                  </p>
+                  <SyntaxHighlighter className="text-base" language="javascript" style={github}>
+                    {codeUsageString}
+                  </SyntaxHighlighter>
                 </div>
               </div>
             </div>
             <div className="bg-gray-50 px-4 py-3 sm:px-6 sm:flex sm:flex-row-reverse">
-              <button type="button" className="w-full inline-flex justify-center rounded-md border border-transparent shadow-sm px-4 py-2 bg-orange-500 text-base font-medium text-white hover:bg-orange-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500 sm:ml-3 sm:w-auto sm:text-sm">
+              <a href={weaver_icon_weixin} download="iconc4d_weaver_weixin.png" target="_blank" rel="noreferrer" className="w-full inline-flex justify-center rounded-md border border-transparent shadow-sm px-4 py-2 bg-orange-500 text-base font-medium text-white hover:bg-orange-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500 sm:ml-3 sm:w-auto sm:text-sm">
                 Download PNG
-              </button>
+              </a>
               <button type="button" className="mt-3 w-full inline-flex justify-center rounded-md border border-gray-300 shadow-sm px-4 py-2 bg-white text-base font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 sm:mt-0 sm:ml-3 sm:w-auto sm:text-sm"
                 onClick={e => setIsOpen(false)}
               >
@@ -186,6 +204,9 @@ function App() {
         <Stage>
            <Icon size={size} interval={interval} url="https://img.alicdn.com/imgextra/i2/19999999999999/O1CN01ZViOh72NjasxGvRSV_!!19999999999999-2-tps.png" />
         </Stage>
+        <Stage>
+           <Icon size={size} interval={interval} url={weaver_icon_weixin} />
+        </Stage>
       </section>  
       <section className="fixed top-0 right-0 p-4">
         <div className="w-64 h-64 p-4">
@@ -202,8 +223,12 @@ function App() {
           <MySlider min={0} max={60} value={interval} onChange={value => setInterval(value)} />
         </div>
       </section>
-      <footer className="container m-auto flex justify-center">
-        <p className="text-gray-600">Inspired by Aliyun 🧡 Created by <a className="text-orange-500 hover:underline" href="https://github.com/Turkyden" target="_blank" rel="noreferrer">Turkyden</a></p>
+      <footer className="container m-auto flex justify-center py-10">
+        <p className="text-gray-600">
+          Designed by <a className="text-orange-500 hover:underline" href="https://github.com/Gaoyu" target="_blank" rel="noreferrer">Gaoyu</a>
+          <span className="px-2">🧡</span> 
+          Developed by <a className="text-orange-500 hover:underline" href="https://github.com/Turkyden" target="_blank" rel="noreferrer">Turkyden</a>
+        </p>
       </footer>
     </>
   )
