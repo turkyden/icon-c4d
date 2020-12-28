@@ -5,12 +5,22 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 ## Usage
 
 ```tsx
-import IconC4D from 'iconC4D';
-import icon_cloud_computing from '../assets/icon/cloud_computing.png';
+import Icon, { useIcon } from 'iconC4D';
+import icon_ai from '../assets/icon_ai.png';
 
 function App() {
+  const iconProps = useIcon({
+    type="ai" 
+    size={64} 
+    interval={10}
+  });
+
   return (
-    <IconC4D size={64} interval={10} src={icon_cloud_computing} />
+    <>
+      <Icon type="ai" size={64} interval={10} />
+      <Icon size={64} interval={10} src={icon_ai} />
+      <i {...iconProps}></i>
+    </>
   )
 }
 ```

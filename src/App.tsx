@@ -1,82 +1,35 @@
-import React, { useState, useEffect, useLayoutEffect } from 'react';
+import React, { useState } from 'react';
 import { render } from 'react-dom';
 import { Transition } from '@headlessui/react'
 import Slider, { SliderProps } from 'rc-slider';
 import 'rc-slider/assets/index.css';
 import SyntaxHighlighter from 'react-syntax-highlighter';
 import { github } from 'react-syntax-highlighter/dist/esm/styles/hljs';
-import weaver_icon_weixin from './assets/@weaver/weixin.png';
-
-type IconProps = {
-  url: string,
-  size?: number, 
-  interval?: number
-}
-
-function Icon({ url, size = 64, interval = 20 }: IconProps) {
-
-  const [y, setY] = useState(0);
-
-  const [direction, setDirection] = useState(0);
-
-  useEffect(() => {
-    const timer = window.setInterval(() => {
-      setY(preState => {
-        const nextState = preState + size * direction;
-        if(nextState >= -size*20 && nextState <= 0){
-          return nextState
-        } else{
-          return preState
-        }
-      })
-    }, interval)
-    return () => window.clearInterval(timer)
-  }, [size, interval, direction])
-
-  useLayoutEffect(() => {
-    setDirection(-1);
-    const timer = window.setTimeout(() => {
-      setDirection(1);
-    }, 2000)
-    return () => window.clearInterval(timer)
-  }, [])
-
-  return (
-    <div 
-      className="cursor-pointer bg-no-repeat bg-cover" 
-      onMouseOver={e => setDirection(-1)} 
-      onMouseOut={e => setDirection(1)} 
-      style={{
-        width: size,
-        height: size,
-        backgroundImage: `url(${url})`,
-        backgroundPosition: '0 0',
-        backgroundPositionY: y
-      }}
-    />
-  )
-}
+import Icon from './Icon';
+import Images from './utils/index';
+import avatar_gaoyu from './avatars/gaoyu.png';
+import avatar_turkyden from './avatars/turkyden.jpg';
 
 const MySlider: React.FunctionComponent<SliderProps> = (props) => {
   return <Slider {...props} trackStyle={{ backgroundColor: '#ff6a00' }} handleStyle={{ border: 'solid 2px #ff6a00' }} />
 }
 
-const Stage: React.FunctionComponent<{ children: React.ReactElement }> = ({ children }) => {
+const Stage: React.FunctionComponent<{ url: string, filename: string, children: React.ReactElement }> = ({ url, filename, children }) => {
   const [isOpen, setIsOpen] = useState(false);
 
   const codeInstallString = `npm install iconC4D`;
 
-  const codeUsageString = `import IconC4D from 'iconC4D';
-import icon_cloud_computing from '../assets/icon/cloud_computing.png';
+  const codeUsageString = `import Icon from 'iconC4D';
+import icon from '../assets/icon.png';
 
 function App() {
   return (
-    <IconC4D size={64} interval={10} src={icon_cloud_computing} />
+    <Icon size={64} interval={10} src={icon} />
   )
 }`
 
   return (
-    <>
+    <div className="sm:w-full md:w-1/2 lg:w-1/3 xl:w-1/5 2xl:w-1/6 my-2 flex justify-center">
       <div className="w-48 h-48 bg-gray-50 shadow-inner flex flex-col justify-center items-center"
         onClick={() => setIsOpen(!isOpen)}
       >
@@ -133,7 +86,7 @@ function App() {
               </div>
             </div>
             <div className="bg-gray-50 px-4 py-3 sm:px-6 sm:flex sm:flex-row-reverse">
-              <a href={weaver_icon_weixin} download="iconc4d_weaver_weixin.png" target="_blank" rel="noreferrer" className="w-full inline-flex justify-center rounded-md border border-transparent shadow-sm px-4 py-2 bg-orange-500 text-base font-medium text-white hover:bg-orange-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500 sm:ml-3 sm:w-auto sm:text-sm">
+              <a href={url} download={filename} target="_blank" rel="noreferrer" className="w-full inline-flex justify-center rounded-md border border-transparent shadow-sm px-4 py-2 bg-orange-500 text-base font-medium text-white hover:bg-orange-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500 sm:ml-3 sm:w-auto sm:text-sm">
                 Download PNG
               </a>
               <button type="button" className="mt-3 w-full inline-flex justify-center rounded-md border border-gray-300 shadow-sm px-4 py-2 bg-white text-base font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 sm:mt-0 sm:ml-3 sm:w-auto sm:text-sm"
@@ -145,7 +98,7 @@ function App() {
           </Transition>
         </div>
       </div>
-    </>
+    </div>
   )
 }
 
@@ -157,56 +110,26 @@ function App() {
 
   return (
     <>
-      <header className="w-full flex flex-col justify-center items-center py-20">
-        <h1 className="text-6xl font-black">Icon<span className="text-orange-500">C4D</span></h1>
-        <h2 className="text-2xl font-mono text-gray-500 py-4">An C4D style icon developed by React.</h2>
+      <header className="container m-auto flex items-center py-4">
+        {/* <a className="text-gray-500 text-lg" href="https://github/Turkyden/icon-c4d/doc" target="_blank" rel="noreferrer">Docs</a> */}
       </header>
-      <section className="container m-auto grid grid-cols-6 gap-2">
-        <Stage>
-          <Icon size={size} interval={interval} url="https://img.alicdn.com/tfs/TB1qolSVhz1gK0jSZSgXXavwpXa-128-2688.png" />
-        </Stage>
-        <Stage>
-          <Icon size={size} interval={interval} url="https://img.alicdn.com/tfs/TB1SwmqiODsXe8jSZR0XXXK6FXa-128-2688.png" />
-        </Stage>
-        <Stage>
-          <Icon size={size} interval={interval} url="https://img.alicdn.com/tfs/TB1C7fPidTfau8jSZFwXXX1mVXa-128-2688.png" />
-        </Stage>
-        <Stage>
-          <Icon size={size} interval={interval} url="https://img.alicdn.com/imgextra/i1/19999999999999/O1CN01kEo6502NjasxGsHnS_!!19999999999999-2-tps.png" />
-        </Stage>
-        <Stage>
-          <Icon size={size} interval={interval} url="https://img.alicdn.com/imgextra/i1/19999999999999/O1CN01wTY5Zt2Njasyydqim_!!19999999999999-2-tps.png" />
-        </Stage>
-        <Stage>
-          <Icon size={size} interval={interval} url="https://img.alicdn.com/tfs/TB1u12whCslXu8jSZFuXXXg7FXa-128-2688.png" />
-        </Stage>
-        <Stage>
-          <Icon size={size} interval={interval} url="https://img.alicdn.com/imgextra/i4/19999999999999/O1CN019FqNuv2NjaswQicY2_!!19999999999999-2-tps.png" />
-        </Stage>
-        <Stage>
-          <Icon size={size} interval={interval} url="https://img.alicdn.com/tfs/TB111c4mz39YK4jSZPcXXXrUFXa-128-2688.png" />
-        </Stage>
-        <Stage>
-          <Icon size={size} interval={interval} url="https://img.alicdn.com/tfs/TB1.6kUU4v1gK0jSZFFXXb0sXXa-128-2688.png" />
-        </Stage>
-        <Stage>
-          <Icon size={size} interval={interval} url="https://img.alicdn.com/imgextra/i2/19999999999999/O1CN01lNd4Q42Njasz4EGUD_!!19999999999999-2-tps.png" />
-        </Stage>
-        <Stage>
-          <Icon size={size} interval={interval} url="https://img.alicdn.com/tfs/TB1cHirmP39YK4jSZPcXXXrUFXa-128-2688.png" />
-        </Stage>
-        <Stage>
-          <Icon size={size} interval={interval} url="https://img.alicdn.com/imgextra/i4/19999999999999/O1CN01S0iMLP2Njasz4Fk1Q_!!19999999999999-2-tps.png" />
-        </Stage>
-        <Stage>
-          <Icon size={size} interval={interval} url="https://img.alicdn.com/tfs/TB1gnuZiipE_u4jSZKbXXbCUVXa-128-2688.png" />
-        </Stage>
-        <Stage>
-          <Icon size={size} interval={interval} url="https://img.alicdn.com/imgextra/i2/19999999999999/O1CN01ZViOh72NjasxGvRSV_!!19999999999999-2-tps.png" />
-        </Stage>
-        <Stage>
-          <Icon size={size} interval={interval} url={weaver_icon_weixin} />
-        </Stage>
+      <section className="w-full flex flex-col justify-center items-center py-10">
+        <h1 className="text-6xl font-black">Icon<span className="text-orange-500">C4D</span></h1>
+        <h2 className="text-2xl font-mono text-gray-500 py-4 flex items-center">
+          An C4D style icon developed by React
+          <a className="text-gray-500 pl-4" href="https://github.com/Turkyden/icon-c4d" target="_blank" rel="noreferrer" >
+            <img alt="GitHub Repo stars" src="https://img.shields.io/github/stars/Turkyden/icon-c4d?style=social" />
+          </a>
+        </h2>
+      </section>
+      <section className="container m-auto flex flex-wrap justify-start">
+        {
+          Object.keys(Images).map(filename => (
+            <Stage url={Images[filename]} filename={filename}>
+              <Icon size={size} interval={interval} url={Images[filename]} />
+            </Stage>
+          ))
+        }
       </section>  
       <section className="fixed top-0 right-0 p-4">
         <div className="w-64 h-64 p-4">
@@ -221,6 +144,14 @@ function App() {
             <span className="text-gray-800">{interval} ms</span>
           </p>
           <MySlider min={0} max={60} value={interval} onChange={value => setInterval(value)} />
+        </div>
+      </section>
+      <section className="container m-auto py-10">
+        <h3 className="text-center text-2xl">Contributor</h3>
+        <div className="flex justify-center -space-x-2 overflow-hidden pt-6">
+          <img className="inline-block h-10 w-10 rounded-full ring-2 ring-white" src={avatar_turkyden} alt="Turkyden" title="Turkyden" />
+          <img className="inline-block h-10 w-10 rounded-full ring-2 ring-white" src={avatar_gaoyu} alt="gaoyu" title="gaoyu" />
+          <img className="inline-block h-10 w-10 rounded-full ring-2 ring-white" src="https://jdc.jd.com/img/64x64?color=F3F4F6&text=..." alt="comming" title="comming" />
         </div>
       </section>
       <footer className="container m-auto flex justify-center py-10">

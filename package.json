@@ -54,6 +54,7 @@
     ]
   },
   "devDependencies": {
-    "@types/react-syntax-highlighter": "^13.5.0"
+    "@types/react-syntax-highlighter": "^13.5.0",
+    "@types/webpack-env": "^1.16.0"
   }
 }

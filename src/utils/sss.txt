@@ -1,5 +1,0 @@
-// export default function requireSvgs () {
-//   const requireAll = requireContext => requireContext.keys().map(requireContext)
-//   const req = require.context('./assets/@aliyun', false, /\.png$/)
-//   requireAll(req)
-// }
