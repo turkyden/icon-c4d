@@ -1,5 +1,6 @@
 {
   "name": "icon-c4d",
+  "private": false,
   "version": "0.1.0",
   "main": "dist/index.js",
   "module": "dist/index.esm.js",
@@ -19,7 +20,6 @@
   "scripts": {
     "start": "rollup -c -w",
     "build": "rollup -c",
-    "prepublishOnly": "NODE_ENV=production yarn build",
     "test": "jest"
   },
   "dependencies": {

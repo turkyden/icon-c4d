@@ -21,7 +21,7 @@
     "*.{js,ts,tsx,md,json,html,css,scss,webmanifest}": "prettier --write"
   },
   "scripts": {
-    "publish": "lerna publish --ignore-prepublish from-package",
+    "publish": "lerna publish from-package",
     "lib": "lerna run --scope icon-c4d start",
     "dumi": "lerna run --parallel --ignore site start",
     "site": "lerna run --parallel --ignore dumi start",
