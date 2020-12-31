@@ -1,6 +1,6 @@
 {
   "name": "icon-c4d",
-  "version": null,
+  "version": "0.0.0",
   "main": "dist/index.js",
   "module": "dist/index.esm.js",
   "types": "dist/index.d.ts",
@@ -49,5 +49,5 @@
     "ts-jest": "^26.1.4",
     "typescript": "^3.9.6"
   },
-  "gitHead": "0c24930f0efe3f6cf344a7273142b9eeb7308c3a"
+  "gitHead": "c62f6ea61ce2302f270b883fb613a7895a0cae05"
 }
