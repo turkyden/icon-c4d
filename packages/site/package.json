@@ -1,6 +1,6 @@
 {
   "name": "site",
-  "version": null,
+  "version": "0.1.0",
   "private": true,
   "homepage": "http://turkyden.com/icon-c4d",
   "dependencies": {
