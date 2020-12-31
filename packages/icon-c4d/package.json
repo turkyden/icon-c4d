@@ -1,6 +1,6 @@
 {
   "name": "icon-c4d",
-  "version": "0.0.1",
+  "version": null,
   "main": "dist/index.js",
   "module": "dist/index.esm.js",
   "types": "dist/index.d.ts",
