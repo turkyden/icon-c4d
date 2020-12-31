@@ -166,7 +166,7 @@ function App() {
       <section className="container m-auto flex flex-wrap justify-start">
         {Object.keys(Images).map(filename => (
           <Stage url={Images[filename]} filename={filename}>
-            <Icon size={size} interval={interval} url={Images[filename]} />
+            <Icon size={size} interval={interval} src={Images[filename]} />
           </Stage>
         ))}
       </section>

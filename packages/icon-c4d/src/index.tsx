@@ -1,12 +1,18 @@
 import React, { useState, useEffect, useLayoutEffect } from 'react'
 
-type IconProps = {
-  url: string
-  size?: number
-  interval?: number
+interface IconProps {
+  src: string,
+  size?: number,
+  interval?: number,
 }
 
-export default function Icon({ url, size = 64, interval = 20 }: IconProps) {
+interface RetrunProps {
+  onMouseOver: (e: any) => void,
+  onMouseOut: (e: any) => void,
+  style: React.CSSProperties
+}
+
+export function useIcon({ src, size = 64, interval = 20 }: IconProps): RetrunProps {
   const [y, setY] = useState(0)
 
   const [direction, setDirection] = useState(0)
@@ -33,18 +39,31 @@ export default function Icon({ url, size = 64, interval = 20 }: IconProps) {
     return () => window.clearInterval(timer)
   }, [])
 
+  const defaultStyles = {
+    display: 'block',
+    cursor: 'pointer',
+    backgroundRepeat: 'no-repeat',
+    backgroundSize: 'cover'
+  }
+
+  return {
+    onMouseOver: (e) => setDirection(-1),
+    onMouseOut: (e) => setDirection(1),
+    style: {
+      ...defaultStyles,
+      width: size,
+      height: size,
+      backgroundImage: `url(${src})`,
+      backgroundPosition: '0 0',
+      backgroundPositionY: y
+    }
+  }
+}
+
+export default function Icon(iconProps: IconProps) {
+  const props = useIcon(iconProps)
+
   return (
-    <div
-      className="cursor-pointer bg-no-repeat bg-cover"
-      onMouseOver={e => setDirection(-1)}
-      onMouseOut={e => setDirection(1)}
-      style={{
-        width: size,
-        height: size,
-        backgroundImage: `url(${url})`,
-        backgroundPosition: '0 0',
-        backgroundPositionY: y
-      }}
-    />
+    <div { ...props as RetrunProps }/>
   )
 }

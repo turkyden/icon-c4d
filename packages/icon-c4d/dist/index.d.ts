@@ -1,7 +1,14 @@
-declare type IconProps = {
-  url: string
-  size?: number
-  interval?: number
+import React from 'react';
+interface IconProps {
+    src: string;
+    size?: number;
+    interval?: number;
 }
-export default function Icon({ url, size, interval }: IconProps): JSX.Element
-export {}
+interface RetrunProps {
+    onMouseOver: (e: any) => void;
+    onMouseOut: (e: any) => void;
+    style: React.CSSProperties;
+}
+export declare function useIcon({ src, size, interval }: IconProps): RetrunProps;
+export default function Icon(iconProps: IconProps): JSX.Element;
+export {};
