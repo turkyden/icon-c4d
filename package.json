@@ -1,60 +1,43 @@
 {
-  "name": "icon-c4d",
-  "version": "0.1.0",
-  "private": false,
-  "homepage": "http://turkyden.com/icon-c4d",
-  "dependencies": {
-    "@craco/craco": "^6.0.0",
-    "@headlessui/react": "^0.2.0",
-    "@tailwindcss/postcss7-compat": "^2.0.1",
-    "@testing-library/jest-dom": "^5.11.4",
-    "@testing-library/react": "^11.1.0",
-    "@testing-library/user-event": "^12.1.10",
-    "@types/jest": "^26.0.15",
-    "@types/node": "^12.0.0",
-    "@types/react": "^16.9.53",
-    "@types/react-dom": "^16.9.8",
-    "ahooks": "^2.9.2",
-    "autoprefixer": "^9.8.6",
-    "eslint": "^7.15.0",
-    "postcss": "^7.0.35",
-    "rc-slider": "^9.7.1",
-    "react": "^17.0.1",
-    "react-dom": "^17.0.1",
-    "react-github-corner": "^2.5.0",
-    "react-scripts": "4.0.1",
-    "react-syntax-highlighter": "^15.4.3",
-    "tailwindcss": "npm:@tailwindcss/postcss7-compat@^2.0.1",
-    "tailwindcss-classnames": "^1.9.0",
-    "typescript": "^4.0.3",
-    "web-vitals": "^0.2.4"
+  "name": "icon-c4d-root",
+  "private": true,
+  "author": "Dengju Deng <wj871287@gmail.com>",
+  "homepage": "https://icon-c4d.com",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Turkyden/icon-c4d.git"
+  },
+  "workspaces": [
+    "packages/*"
+  ],
+  "devDependencies": {
+    "husky": ">=4",
+    "lerna": "^3.22.1",
+    "lint-staged": ">=10",
+    "prettier": "^1.15.3"
+  },
+  "lint-staged": {
+    "*.{js,ts,tsx,md,json,html,css,scss,webmanifest}": "prettier --write"
   },
   "scripts": {
-    "start": "craco start",
-    "build": "craco build",
-    "test": "craco test",
-    "eject": "craco eject"
+    "lib": "lerna run --scope icon-c4d start",
+    "dumi": "lerna run --scope dumi start",
+    "site": "lerna run --scope site start",
+    "start": "lerna run --parallel start",
+    "build": "lerna run build",
+    "shoot": "lerna run shoot",
+    "test": "lerna run test",
+    "test:coverage": "lerna run test:coverage",
+    "clean": "lerna clean"
   },
-  "eslintConfig": {
-    "extends": [
-      "react-app",
-      "react-app/jest"
-    ]
+  "prettier": {
+    "semi": false,
+    "singleQuote": true
   },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
-  },
-  "devDependencies": {
-    "@types/react-syntax-highlighter": "^13.5.0",
-    "@types/webpack-env": "^1.16.0"
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
   }
 }
