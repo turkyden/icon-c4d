@@ -1,53 +1,43 @@
 {
+  "private": true,
   "name": "icon-c4d",
-  "private": false,
-  "version": "0.1.4",
+  "version": "0.1.0",
+  "scripts": {
+    "start": "dumi dev",
+    "build": "dumi build && father-build",
+    "docs:deploy": "gh-pages -d docs-dist",
+    "lib:build": "father-build",
+    "deploy": "npm run docs:build && npm run docs:deploy",
+    "release": "npm run build && npm publish",
+    "prettier": "prettier --write \"**/*.{js,jsx,tsx,ts,less,md,json}\"",
+    "test": "umi-test",
+    "test:coverage": "umi-test --coverage",
+    "icon-c4d": "^0.0.1"
+  },
   "main": "dist/index.js",
   "module": "dist/index.esm.js",
-  "types": "dist/index.d.ts",
-  "author": "Dengju Deng <wj871287@gmail.com>",
-  "homepage": "https://turkyden.com/icon-c4d/",
-  "license": "MIT",
-  "repository": "https://github.com/Turkyden/icon-c4d/tree/master/packages/icon-c4d",
-  "funding": "https://github.com/Turkyden/icon-c4d?sponsor=1",
-  "keywords": [
-    "icon",
-    "react",
-    "c4d",
-    "effect",
-    "animate"
-  ],
-  "scripts": {
-    "start": "rollup -c -w",
-    "build": "rollup -c",
-    "test": "jest"
+  "typings": "dist/index.d.ts",
+  "gitHooks": {
+    "pre-commit": "lint-staged"
+  },
+  "lint-staged": {
+    "*.{js,jsx,less,md,json}": [
+      "prettier --write"
+    ],
+    "*.ts?(x)": [
+      "prettier --parser=typescript --write"
+    ]
   },
   "dependencies": {
-    "@emotion/core": "^10.0.28",
-    "classnames": "^2.2.6",
-    "color": "^3.1.2",
-    "emotion": "^10.0.27",
-    "lodash.range": "^3.2.0",
-    "react-spring": "^8.0.27"
-  },
-  "peerDependencies": {
-    "react": "^16.8",
-    "react-dom": "^16.8"
+    "react": "^16.12.0"
   },
   "devDependencies": {
-    "@babel/core": "^7.10.4",
-    "@types/classnames": "^2.2.10",
-    "@types/color": "^3.0.1",
-    "@types/jest": "^24.0.15",
-    "@types/lodash.range": "^3.2.6",
-    "@types/react": "^16.9.23",
-    "jest": "^26.2.2",
-    "react": "^16.12.0",
-    "react-dom": "^16.12.0",
-    "rollup": "^2.21.0",
-    "rollup-plugin-typescript2": "^0.27.1",
-    "ts-jest": "^26.1.4",
-    "typescript": "^3.9.6"
-  },
-  "gitHead": "66ec63231ebd58538ff962a74874549e35bc73f3"
+    "@umijs/test": "^3.0.5",
+    "dumi": "^1.0.10",
+    "father-build": "^1.17.2",
+    "gh-pages": "^3.0.0",
+    "lint-staged": "^10.0.7",
+    "prettier": "^1.19.1",
+    "yorkie": "^2.0.0"
+  }
 }
