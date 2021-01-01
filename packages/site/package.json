@@ -2,7 +2,7 @@
   "name": "site",
   "version": "0.1.0",
   "private": true,
-  "homepage": "http://turkyden.com/icon-c4d",
+  "homepage": "http://icon-c4d.surge.sh",
   "dependencies": {
     "@craco/craco": "^6.0.0",
     "@headlessui/react": "^0.2.0",

@@ -24,7 +24,7 @@
     "start": "lerna run --scope icon-c4d start",
     "build": "lerna run --scope icon-c4d build",
     "start:site": "lerna run --scope site start",
-    "build:site": "lerna run --scope site build",
+    "build:site": "lerna run --scope site build && npx surge packages/site/build icon-c4d.surge.sh",
     "shoot": "lerna run shoot",
     "test": "lerna run test",
     "test:coverage": "lerna run test:coverage",
